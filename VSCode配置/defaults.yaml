@@ -1,0 +1,12 @@
+# 全局默认用 Ninja 构建
+build:
+  # 指定构建器为 Ninja
+  build-base: build
+  install-base: install
+  cmake-args:
+    # 保留自动生成 compile_commands.json
+    - -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    # 指定使用 Ninja 生成器
+    - -DCMAKE_GENERATOR=Ninja
+    # 指定 Ninja 路径（如果 which ninja 不是 /usr/bin/ninja，替换成你的路径）
+    - -DCMAKE_MAKE_PROGRAM=/home/ros2/Toolchains/ninja-linux/ninja

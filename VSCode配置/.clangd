@@ -1,0 +1,18 @@
+CompileFlags:
+  Add:
+    - -std=c++17
+    - -Wall
+Diagnostics:     
+  # 禁用未使用头文件警告：仅不提示，但保留自动修复能力：Strict (默认) / None (禁用)
+  UnusedIncludes: None
+  
+  # 可选：也禁用缺失头文件警告
+  MissingIncludes: None
+  
+  # 完全禁用未使用头文件的告警
+  Suppress:
+    - unused-includes
+    - unused-parameter
+    - unused-variable
+    - implicit-float-conversion
+    - documentation-unknown-command

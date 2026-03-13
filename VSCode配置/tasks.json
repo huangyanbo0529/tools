@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "colcon build", // 和launch.json里的preLaunchTask完全对应
+            "type": "shell",
+            // "command": "--cmake-args -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON --symlink-install", // 构建工作空间下所有功能包
+            "command": "--cmake-args -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON --symlink-install --packages-select cpp01_test py01_test",
+            // 👉 上面的demo_py_pkg替换为你的包名，多个包用空格分隔
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "ROS2 Build"
+        }
+    ]
+}

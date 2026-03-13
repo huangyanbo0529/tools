@@ -1,0 +1,44 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ROS2: Python Node",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/py01_test/py01_test/py_test_hello.py", // 节点路径
+            "args": [], // 节点参数
+            "envFile": "${workspaceFolder}/.vscode/.env", // 加载ROS环境
+            "console": "integratedTerminal", // 集成终端显示输出
+            "justMyCode": false // 允许调试ROS2库代码
+        },
+        {
+            "name": "ROS2 Debug Node",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/install/cpp01_test/lib/cpp01_test/cpp_test_hello",
+            "args": [
+                "15",
+                "10"
+            ], // 调试需要输入的参数，比如argv[1]、argv[2] ...
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                {
+                    "name": "ROS_DOMAIN_ID",
+                    "value": "0"
+                }
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "colcon build"
+        }
+    ]
+}

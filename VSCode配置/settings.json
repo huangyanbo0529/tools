@@ -1,0 +1,225 @@
+{
+  "files.defaultLanguage": "cpp",
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.snippetSuggestions": "top",
+  "editor.fontSize": 18,
+  "remote.SSH.remotePlatform": {
+    "Ubuntu22.04": "linux",
+    "ROS2": "linux"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "terminal.integrated.env.osx": {
+    "PYTHONPATH": "${workspaceFolder}/"
+  },
+  "terminal.integrated.env.linux": {
+    "PYTHONPATH": "${workspaceFolder}/"
+  },
+  "terminal.integrated.env.windows": {
+    "PYTHONPATH": "${workspaceFolder}/"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
+  },
+  "cmake.configureOnOpen": true,
+  "cmake.options.statusBarVisibility": "visible",
+  "editor.fontFamily": "'JetBrains Mono  NL','Source Code Pro',Consolas, 'Courier New', monospace",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.fontFamily": "'MesloLGL Nerd Font','JetBrains Mono  NL','Source Code Pro',Consolas, 'Courier New', monospace",
+  "terminal.integrated.copyOnSelection": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  },
+  "black-formatter.args": [
+    "--line-length=120",
+    "--skip-string-normalization"
+  ],
+  "python.languageServer": "Pylance",
+  "terminal.integrated.enableImages": true,
+  "git.autofetch": false,
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.fontSize": 17,
+  "editor.parameterHints.enabled": false,
+  "editor.inlayHints.enabled": "off",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ],
+  "cmake.configureOnEdit": false,
+  "cmake.generator": "Ninja",
+  "cmake.copyCompileCommands": "",
+  "workbench.startupEditor": "none",
+  "editor.inlineSuggest.showToolbar": "always",
+  "files.autoSave": "afterDelay",
+  "update.enableWindowsBackgroundUpdates": false,
+  "qt-core.qtInstallationRoot": "D:\\software\\Qt\\Qt5.14.2",
+  "update.mode": "manual",
+  "chat.commandCenter.enabled": false,
+  "editor.mouseWheelZoom": true,
+  "workbench.colorTheme": "GitHub Dark",
+  "extensions.autoUpdate": false,
+  "workbench.secondarySideBar.defaultVisibility": "visible",
+  "Lingma.cloudModelAutoTriggerGenerateLength": "disable",
+  "chat.disableAIFeatures": true,
+  "window.zoomLevel": 0.5,
+  "qt-ui.customWidgetsDesignerExePath": "D:\\software\\Qt\\Qt5.14.2\\5.14.2\\mingw73_64\\bin\\designer.exe",
+  "qt-qml.qmlls.customExePath": "D:\\software\\Qt\\Qt5.14.2\\5.14.2\\mingw73_64\\bin\\qml.exe",
+  "redhat.telemetry.enabled": true,
+  "cSpell.userWords": [
+    "bugprone",
+    "buildtool",
+    "colcon",
+    "Consolas",
+    "cout",
+    "cppcoreguidelines",
+    "DCMAKE",
+    "Dont",
+    "endl",
+    "fcanon",
+    "fileheader",
+    "funcdocstring",
+    "GNUCXX",
+    "huangyb",
+    "Ints",
+    "isystem",
+    "Meslo",
+    "mfloat",
+    "mfpu",
+    "mynode",
+    "myparam",
+    "pytest",
+    "rclcpp",
+    "rclpy",
+    "rosaction",
+    "rosidl",
+    "rosmsg",
+    "rossrv",
+    "sout",
+    "STDC",
+    "stringop",
+    "Werror",
+    "Wextra",
+    "Wliteral",
+    "Wpedantic",
+    "Wunused"
+  ],
+  "explorer.compactFolders": false,
+  "files.enableTrash": false,
+  "[cpp]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  "[c]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  // 指定 CMake Tools 使用指定的构建目录下生成编译数据库文件
+  "cmake.buildDirectory": "${workspaceFolder}/build",
+  // CMake: Merged Compile Commands 核心配置
+  "cmake.mergedCompileCommands": "merged",
+  // ==========================================
+  // 【核心：clangd C++语言服务器配置（必选）】
+  // ==========================================
+  "clangd.arguments": [
+    // 指定编译数据库路径（colcon编译后生成，固定指向build目录）
+    "--compile-commands-dir=${workspaceFolder}/build",
+    // 关键：识别系统gcc/g++，解决ROS2系统头文件报红问题
+    "--query-driver=/usr/bin/gcc,/usr/bin/g++",
+    // 后台索引项目，提升大项目响应速度
+    "--background-index",
+    // 全作用域代码补全（包含类内/命名空间）
+    "--all-scopes-completion",
+    // 补全信息详细展示（含参数、返回值）
+    "--completion-style=detailed",
+    // 关闭自动插入头文件（避免非预期引入）
+    "--header-insertion=never",
+    // 预编译头存入内存，大幅提升补全/跳转速度
+    "--pch-storage=memory",
+    // 开启跨文件重命名重构（修改类名/函数名同步更新）
+    "--cross-file-rename",
+    // 函数参数占位符，补全后快速填写参数
+    "--function-arg-placeholders",
+    // 关闭自动插入头文件，避免乱加冗余头文件
+    "--header-insertion=never",
+    // 预编译头存入内存，提升性能
+    "--pch-storage=memory",
+    // 多线程索引，根据CPU核心数调整（一般设为CPU核心数）
+    "-j=8",
+    // 补全结果上限，避免卡顿
+    "--limit-results=500",
+    // 开启clang-tidy静态代码检查（符合ROS2代码规范）
+    "--clang-tidy",
+    // 支持项目根目录.clangd配置文件
+    "--enable-config",
+    // 兜底代码格式化风格（非空时生效）
+    "--fallback-style=Google"
+  ],
+  // 配置文件变更时自动重启clangd
+  "clangd.onConfigChanged": "restart",
+  // 开启语义高亮，代码可读性更强
+  "editor.semanticHighlighting.enabled": true,
+  // ==========================================
+  // 让VSCode识别.msg/.srv/.action/.launch文件
+  // ==========================================
+  "files.associations": {
+    "iostream": "cpp",
+    "stdio": "c",
+    "string.h": "c",
+    "*.msg": "rosmsg",
+    "*.srv": "rossrv",
+    "*.action": "rosaction",
+    "*.launch": "xml",
+    "*.xml": "xml"
+  },
+  // 【必选：解决微软C/C++插件冲突（关键！）】
+  // ==========================================
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "C_Cpp.autocomplete": "disabled",
+  "C_Cpp.errorSquiggles": "disabled",
+  "C_Cpp.suggestSnippets": false,
+  "C_Cpp.formatting": "disabled",
+  "C_Cpp.autoAddFileAssociations": false,
+  // ==========================================
+  // 【代码格式化配置】
+  // ==========================================
+  "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+  "editor.formatOnSave": true, // 保存自动格式化
+  "editor.formatOnType": true, // 输入时自动格式化
+  "editor.tabSize": 4, // ROS2统一4空格缩进
+  "editor.insertSpaces": true, // 用空格替代Tab
+  // ==========================================
+  // 【可选：文件浏览/编辑优化】
+  // ==========================================
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/build": false,
+    "**/install": false,
+    "**/log": false
+  },
+  "search.exclude": {
+    "**/build": false,
+    "**/install": false,
+    "**/log": false
+  },
+  "python.terminal.useEnvFile": true,
+  "python.envFile": "${workspaceFolder}/.vscode/.env"
+}
